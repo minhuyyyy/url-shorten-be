@@ -1,5 +1,8 @@
-com\huyttm\url_shortener\url_shortener\url\URLRepo.class
-com\huyttm\url_shortener\url_shortener\url\URL.class
-com\huyttm\url_shortener\url_shortener\url\URLController.class
+com\huyttm\url_shortener\url_shortener\services\URLServices.class
+com\huyttm\url_shortener\url_shortener\models\URL.class
+com\huyttm\url_shortener\url_shortener\config\SecurityConfig.class
+com\huyttm\url_shortener\url_shortener\exceptions\ShortenedURLException.class
 com\huyttm\url_shortener\url_shortener\Application.class
-com\huyttm\url_shortener\url_shortener\url\URLServices.class
+com\huyttm\url_shortener\url_shortener\controllers\URLController.class
+com\huyttm\url_shortener\url_shortener\exceptions\GlobalExceptionHandler.class
+com\huyttm\url_shortener\url_shortener\respository\URLRepo.class

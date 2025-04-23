@@ -1,10 +1,12 @@
-package com.huyttm.url_shortener.url_shortener.url;
+package com.huyttm.url_shortener.url_shortener.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.huyttm.url_shortener.url_shortener.exceptions.ShortenedURLException;
+import com.huyttm.url_shortener.url_shortener.models.URL;
+import com.huyttm.url_shortener.url_shortener.services.URLServices;
 import jakarta.validation.Valid;
 import java.util.Collections;
 import java.util.Optional;
@@ -17,8 +19,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
-
 
 @RestController
 @RequestMapping("/api/urls")
@@ -34,7 +34,7 @@ public class URLController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> createURL(@Valid @RequestBody URL url) {
         try {
-
+            System.out.println("URL expired on" + url.getExpirationDate());
             URL createdUrl = urlServices.createUrl(url);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdUrl);
 
@@ -55,7 +55,5 @@ public class URLController {
         headers.set("Location", foundURL.get().getOriginalURL());
         return new ResponseEntity<>(headers, HttpStatus.FOUND);
     }
-
-
 
 }

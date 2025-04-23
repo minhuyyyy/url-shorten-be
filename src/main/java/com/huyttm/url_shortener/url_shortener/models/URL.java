@@ -1,4 +1,4 @@
-package com.huyttm.url_shortener.url_shortener.url;
+package com.huyttm.url_shortener.url_shortener.models;
 
 import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,6 +21,8 @@ public class URL {
         String originalURL;
         @NotEmpty
         String shortenedURL;
+        @Column(name = "expiration_date")
+        LocalDateTime expirationDate;
         @CreationTimestamp
         @Column(nullable = false, updatable = false)
         LocalDateTime createdAt;
@@ -28,14 +30,14 @@ public class URL {
         @Column(nullable = false)
         LocalDateTime updatedAt;
 
-        public URL(@NotEmpty String originalURL, @NotEmpty String shortenedURL) {
+        public URL(@NotEmpty String originalURL, @NotEmpty String shortenedURL,
+                        @NotEmpty LocalDateTime expirationDate) {
                 this.originalURL = originalURL;
                 this.shortenedURL = shortenedURL;
+                this.expirationDate = expirationDate;
         }
 
-
         public URL() {}
-
 
         public Integer getId() {
                 return id;
@@ -55,6 +57,10 @@ public class URL {
 
         public LocalDateTime getUpdatedAt() {
                 return updatedAt;
+        }
+
+        public LocalDateTime getExpirationDate() {
+                return expirationDate;
         }
 
 }

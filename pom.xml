@@ -12,7 +12,7 @@
 	<artifactId>url_shortener</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>url_shortener</name>
-	<description>Demo project for Spring Boot</description>
+	<description>URL shorten back-end using spring boot</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -63,6 +63,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-actuator</artifactId>
+    	</dependency>
 	</dependencies>
 
 	<build>
